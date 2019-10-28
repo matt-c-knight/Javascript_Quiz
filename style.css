@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+}
+
+.start-button {
+    margin-left: 40%;
+}
+
+.header {
+    float: right;
+    margin-bottom: 50px;
+   
+}
+
+.container {
+    clear: both;
+    
+}
