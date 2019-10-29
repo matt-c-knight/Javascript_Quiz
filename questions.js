@@ -27,4 +27,4 @@
    
 //   ];
 
-  console.log(questions[0].title)
+//   console.log(questions[0].title)
