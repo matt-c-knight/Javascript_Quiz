@@ -22,8 +22,6 @@ answer3.style.display = "none";
 answer4.style.display = "none";
 answer5.style.display = "none";
 submit.style.display = "none";
-// var selectedOption = document.querySelector('input[type=radio]:checked');
-// var answer = selectedOption.value;
 var answersCorrect = 0;
 var answersIncorrect = 0;
 var questions = [
@@ -58,18 +56,13 @@ var questions = [
 
 
 startButton.addEventListener("click", function() {
-   
-    // pause()
     renderPage()
     clearAnswer()
-
-    
-    
-    });
+    timer()
+});
 
     submit.addEventListener("click", function(event) {
     event.preventDefault();
-   
     var selectedOption = document.querySelector('input[type=radio]:checked');
     var answerQ = selectedOption.value;
     
@@ -77,24 +70,16 @@ startButton.addEventListener("click", function() {
               answersCorrect++  
               console.log(answersCorrect, answersIncorrect)
           } else {
-            // time = time - 10;
+            time = time - 10;
             answersIncorrect++
             console.log(answersCorrect, answersIncorrect)
           }
-      // pause()
       renderPage()
       clearAnswer()
-    
-      
-     
       x++
-      
-  
-        
-        });
+      });
 
     function renderPage() {
-        timer();
         i ++
         if(i == 5) {
             done();
@@ -102,7 +87,6 @@ startButton.addEventListener("click", function() {
         question.textContent = questions[i].title;
         paragraph.textContent = "";
         startButton.style.display = "none";
-        
         answer1.style.display = "inline";
         answer2.style.display = "inline";
         answer3.style.display = "inline";
@@ -116,57 +100,45 @@ startButton.addEventListener("click", function() {
         answer5.nextSibling.textContent = " " + questions[i].choices[4];
         }}
 
+ 
+    
     function timer() {
-
-        interval = setInterval(function(){
-            time--;
-            timeDisplay.textContent = time;
+          interval = setInterval(function(){
+          time--;
+          timeDisplay.textContent = time;
+          if(time === 0) {
+            pause();
+            done();
+          }
         },1000);
-    }
+      }
 
     function pause(){
         clearInterval(interval);
-        // time = 15;
+        // time = time - 10;
         timeDisplay.textContent = time;
         
       }
 
-      function done() {
-
+    function done() {
           question.textContent = "Finished! Final score: " + answersCorrect;
           paragraph.textContent = " ";
           answers.textContent = "";
           clearAnswer()
-
       }
       
-      function clearAnswer() {
+    function clearAnswer() {
         answer1.checked = false;
         answer2.checked = false;
         answer3.checked = false;
         answer4.checked = false;
-    }
+      } 
 
 
       
+      
     
-    
-    // function answerChecker() {
-        
-    //          if(questions[0] && answer1.checked) {     
-    //         answersCorrect++
-    //     } else if(questions[1] && answer4.checked) {
-    //         answersCorrect++
-    //     } else if (questions[2] && answer3.checked) {
-    //         answersCorrect++
-    //     } else if (questions[3] && answer1.checked === true) {
-    //         answersCorrect++
-    //     } else if (questions[4] && answer1.checked) {
-    //         answersCorrect++
-    //     }  
-    //       console.log(answersCorrect)
 
-    //     }
 
        
         
