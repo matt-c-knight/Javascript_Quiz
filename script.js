@@ -12,8 +12,9 @@ var answer5 = document.querySelector('#answer5');
 var answers = document.querySelector('#answers');
 var submit = document.querySelector('#submit');
 var i = -1;
-var time = 15;
+var time = 60;
 var interval;
+var x = 0;
 timeDisplay.textContent = time;
 answer1.style.display = "none";
 answer2.style.display = "none";
@@ -21,6 +22,8 @@ answer3.style.display = "none";
 answer4.style.display = "none";
 answer5.style.display = "none";
 submit.style.display = "none";
+// var selectedOption = document.querySelector('input[type=radio]:checked');
+// var answer = selectedOption.value;
 var answersCorrect = 0;
 var answersIncorrect = 0;
 var questions = [
@@ -28,27 +31,27 @@ var questions = [
     {
       title: "Who is leading the AFC North?",
       choices: ["Ravens", "Browns", "Steelers", "Bengals", "none of the above"],
-      answer: "Ravens"
+      answer: "answer1"
     },
     {
       title: "Who is leading the NFC North?",
       choices: ["Bears", "Vikings", "Lions", "Packers", "none of the above"],
-      answer: "Vikings"
+      answer: "answer4"
     },
     {
         title: "Who is leading the NFC East?",
         choices: ["Cowboys", "Redskins", "Eagles", "Giants", "none of the above"],
-        answer: "Eagles"
+        answer: "answer3"
       },
       {
         title: "Who is leading the AFC South?",
         choices: ["Colts", "Texans", "Jaguars", "Titans", "none of the above"],
-        answer: "Titans"
+        answer: "answer1"
       },
       {
         title: "Who is leading the AFC East?",
-        choices: ["Patriots", "Jets", "Bills", "Dolphins", "none of the above"],
-        answer: "none of the above"
+        choices: ["Jets", "Patriots", "Bills", "Dolphins", "none of the above"],
+        answer: "answer2"
       },
    
   ];
@@ -56,7 +59,7 @@ var questions = [
 
 startButton.addEventListener("click", function() {
    
-    pause()
+    // pause()
     renderPage()
     clearAnswer()
 
@@ -66,28 +69,26 @@ startButton.addEventListener("click", function() {
 
     submit.addEventListener("click", function(event) {
     event.preventDefault();
-
-    if(questions[0] && answer1.checked) {     
-        answersCorrect++
-    } 
-    if(questions[1] && answer4.checked) {
-        answersCorrect++
-    } 
-    // if (questions[2] && answer3.checked) {
-    //     answersCorrect++
-    // }    
-    // if (questions[3] && answer1.checked) {
-    //   answersCorrect++
-    // } 
-    // if (questions[4] && answer1.checked) {
-    //     answersCorrect++
-    // } 
-      console.log(answersCorrect)
+   
+    var selectedOption = document.querySelector('input[type=radio]:checked');
+    var answerQ = selectedOption.value;
     
-      pause()
+          if(questions[x].answer == answerQ ) {   
+              answersCorrect++  
+              console.log(answersCorrect, answersIncorrect)
+          } else {
+            // time = time - 10;
+            answersIncorrect++
+            console.log(answersCorrect, answersIncorrect)
+          }
+      // pause()
       renderPage()
-    
       clearAnswer()
+    
+      
+     
+      x++
+      
   
         
         });
@@ -125,15 +126,17 @@ startButton.addEventListener("click", function() {
 
     function pause(){
         clearInterval(interval);
-        time = 15;
+        // time = 15;
         timeDisplay.textContent = time;
         
       }
 
       function done() {
+
           question.textContent = "Finished! Final score: " + answersCorrect;
           paragraph.textContent = " ";
           answers.textContent = "";
+          clearAnswer()
 
       }
       
