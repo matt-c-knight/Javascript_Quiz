@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    margin-bottom: 10%;
 }
 
 .start-button {
@@ -9,12 +10,28 @@ h1 {
 .header {
     float: right;
     margin-bottom: 50px;
+    margin-right: 5%;
+    margin-top: 5%;
    
+}
+
+.answer1 {
+    background-color: purple;
+    color: white;
+    
+}
+
+.timer {
+    padding-left: 10px;
 }
 
 .container {
     clear: both;
     
+}
+
+.paragraph {
+    line-height: 2em;
 }
 
 #submit {
@@ -26,5 +43,9 @@ h1 {
 } */
 
 .initials-container {
+    margin-top: 5%;
+}
+
+.restart-button {
     margin-top: 5%;
 }

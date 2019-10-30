@@ -1,4 +1,7 @@
+$(document).ready(function(){
+
 var startButton = document.querySelector('.start-button');
+var restartButton = document.querySelector('.restart-button');
 var startPage = document.querySelector('.start-page');
 var timeDisplay = document.querySelector('.timer');
 var question = document.querySelector('h2');
@@ -28,8 +31,10 @@ answer5.style.display = "none";
 submit.style.display = "none";
 initialsForm.style.display = "none";
 initialsButton.style.display = "none";
+restartButton.style.display = "none";
 var answersCorrect = 0;
 var answersIncorrect = 0;
+var usersArray = [];
 var questions = [
     
     {
@@ -146,13 +151,15 @@ var questions = [
       initialsButton.addEventListener("click", function(event) {
         event.preventDefault();
         initials = document.querySelector("#initials-input").value;
-         user = {
+        user = {
           initials: initials,
           score: answersCorrect
         };
-          
+        
           localStorage.setItem("user",JSON.stringify(user));
-          // localStorage.setItem("score", answersCorrect);
+          usersArray.push(user);
+          localStorage.setItem("users",JSON.stringify(usersArray));
+          
           highScore()
 
       })
@@ -168,16 +175,37 @@ var questions = [
 
       function highScore() {
         question.textContent = "High Score";
-        initialsForm.value = "";
-        initialsButton.style.display = "";
+        initialsForm.value = user.score;
+        initialsButton.style.display = "none";
+        restartButton.style.display = "block";
         }
 
-      function restart() {
+        $(restartButton).click(function(){
+          location.reload(true);
+      });
 
-      }
+    //  restartButton.addEventListener("click", function() {
 
 
-      
+    //       event.preventDefault()
+    //       restartButton.style.display = "none";
+    //       initialsForm.style.display = "none";
+    //       i = 0;
+    //       time = 60;
+    //       answersCorrect = 0;
+    //       answersIncorrect = 0;
+    //       x = 0;
+    //       renderPage()
+    //       clearAnswer()
+    //       timer()
+         
+          
+    //      })
+     
+     
+
+
+        });
       
     
 
