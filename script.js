@@ -11,10 +11,13 @@ var answer4 = document.querySelector('#answer4');
 var answer5 = document.querySelector('#answer5');
 var answers = document.querySelector('#answers');
 var submit = document.querySelector('#submit');
+var initialsForm = document.querySelector('#initials-input');
+var initialsButton = document.querySelector('#initials-button');
 var i = -1;
 var time = 60;
 var interval;
 var x = 0;
+var initials;
 timeDisplay.textContent = time;
 answer1.style.display = "none";
 answer2.style.display = "none";
@@ -22,6 +25,8 @@ answer3.style.display = "none";
 answer4.style.display = "none";
 answer5.style.display = "none";
 submit.style.display = "none";
+initialsForm.style.display = "none";
+initialsButton.style.display = "none";
 var answersCorrect = 0;
 var answersIncorrect = 0;
 var questions = [
@@ -55,11 +60,11 @@ var questions = [
   ];
 
 
-startButton.addEventListener("click", function() {
-    renderPage()
-    clearAnswer()
-    timer()
-});
+    startButton.addEventListener("click", function() {
+        renderPage()
+        clearAnswer()
+        timer()
+    });
 
     submit.addEventListener("click", function(event) {
     event.preventDefault();
@@ -110,6 +115,11 @@ startButton.addEventListener("click", function() {
             pause();
             done();
           }
+          if(time < 10) {
+          timeDisplay.style.color = "red";
+          timeDisplay.style.fontSize = "25px";
+          timeDisplay.style.padding = "5px";
+          }
         },1000);
       }
 
@@ -124,8 +134,23 @@ startButton.addEventListener("click", function() {
           question.textContent = "Finished! Final score: " + answersCorrect;
           paragraph.textContent = " ";
           answers.textContent = "";
+          initialsForm.style.display = "inline";
+          initialsButton.style.display = "inline";
+          // initials = document.querySelector("#initials-input").value;
+          // localStorage.setItem("initials", initials);
+
+
           clearAnswer()
       }
+
+      initialsButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+          initials = document.querySelector("#initials-input").value;
+          localStorage.setItem("initials", initials);
+          localStorage.setItem("score", answersCorrect);
+
+      })
       
     function clearAnswer() {
         answer1.checked = false;
