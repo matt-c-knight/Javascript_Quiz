@@ -18,6 +18,7 @@ var time = 60;
 var interval;
 var x = 0;
 var initials;
+var user;
 timeDisplay.textContent = time;
 answer1.style.display = "none";
 answer2.style.display = "none";
@@ -138,17 +139,21 @@ var questions = [
           initialsButton.style.display = "inline";
           // initials = document.querySelector("#initials-input").value;
           // localStorage.setItem("initials", initials);
-
-
           clearAnswer()
+          pause()
       }
 
       initialsButton.addEventListener("click", function(event) {
         event.preventDefault();
-
-          initials = document.querySelector("#initials-input").value;
-          localStorage.setItem("initials", initials);
-          localStorage.setItem("score", answersCorrect);
+        initials = document.querySelector("#initials-input").value;
+         user = {
+          initials: initials,
+          score: answersCorrect
+        };
+          
+          localStorage.setItem("user",JSON.stringify(user));
+          // localStorage.setItem("score", answersCorrect);
+          highScore()
 
       })
       
@@ -158,6 +163,18 @@ var questions = [
         answer3.checked = false;
         answer4.checked = false;
       } 
+
+      
+
+      function highScore() {
+        question.textContent = "High Score";
+        initialsForm.value = "";
+        initialsButton.style.display = "";
+        }
+
+      function restart() {
+
+      }
 
 
       
