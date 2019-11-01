@@ -142,8 +142,7 @@ function done() {
       answers.textContent = "";
       initialsForm.style.display = "inline";
       initialsButton.style.display = "inline";
-      // initials = document.querySelector("#initials-input").value;
-      // localStorage.setItem("initials", initials);
+   
       clearAnswer()
       pause()
   }
@@ -158,10 +157,28 @@ function done() {
       usersArray.push(user);
       usersArray = usersArray.concat(JSON.parse(localStorage.getItem('users') || '[]'));
       window.localStorage.setItem('users', JSON.stringify(usersArray));
-      // var test = JSON.parse(localStorage.getItem("users"))
-      // console.log(test)
-      
-      highScore()
+   
+      question.textContent = "High Score";
+      initialsForm.style.display = "none";
+      initialsButton.style.display = "none";
+      restartButton.style.display = "block";
+      paragraph.style.display = "inline";
+      answers.style.display = "inline";
+      var highestScore = usersArray[0].score;
+      var highestName = usersArray[0].initials;
+    
+      for(i = 0; i < usersArray.length; i++) {
+        if (usersArray[i].score > highestScore) {
+          highestName = usersArray[i].initials;
+          highestScore = usersArray[i].score;
+          paragraph.textContent = highestName;
+          answers.textContent = highestScore;
+        } else {
+          paragraph.textContent = highestName;
+          answers.textContent = highestScore;
+        }
+      }
+     
 
   })
   
@@ -174,12 +191,13 @@ function clearAnswer() {
 
  
 
-  function highScore() {
-    question.textContent = "High Score";
-    initialsForm.value = user.score;
-    initialsButton.style.display = "none";
-    restartButton.style.display = "block";
-    }
+  // function highScore() {
+  //   question.textContent = "High Score";
+  //   initialsForm.value = ;
+  //   initialsButton.style.display = "none";
+  //   restartButton.style.display = "block";
+
+  //   }
 
     $(restartButton).click(function(){
       location.reload(true);
@@ -187,28 +205,7 @@ function clearAnswer() {
 
     
 
-      //   $(restartButton).click(function(){
-      //     location.reload(true);
-      // });
-
-    //  restartButton.addEventListener("click", function() {
-
-
-    //       event.preventDefault()
-    //       restartButton.style.display = "none";
-    //       initialsForm.style.display = "none";
-    //       i = 0;
-    //       time = 60;
-    //       answersCorrect = 0;
-    //       answersIncorrect = 0;
-    //       x = 0;
-    //       renderPage()
-    //       clearAnswer()
-    //       timer()
-         
-          
-    //      })
-     
+    
      
 
 
