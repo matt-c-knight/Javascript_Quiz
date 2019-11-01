@@ -156,9 +156,10 @@ function done() {
       score: answersCorrect
     };
       usersArray.push(user);
+      usersArray = usersArray.concat(JSON.parse(localStorage.getItem('users') || '[]'));
       window.localStorage.setItem('users', JSON.stringify(usersArray));
-      var test = JSON.parse(localStorage.getItem("users"))
-      console.log(test)
+      // var test = JSON.parse(localStorage.getItem("users"))
+      // console.log(test)
       
       highScore()
 

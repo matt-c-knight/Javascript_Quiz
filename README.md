@@ -15,3 +15,10 @@
                 <button type="submit" form="form1" value="Submit" id="submit">Submit</button>
             </form>
             <button class="start-button">Start Page</button>
+
+
+            usersArray.push(user);
+      window.localStorage.setItem('users', JSON.stringify(usersArray));
+      var test = JSON.parse(localStorage.getItem("users"))
+      console.log(test)
+      
