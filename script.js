@@ -164,6 +164,7 @@ function done() {
       restartButton.style.display = "block";
       paragraph.style.display = "inline";
       answers.style.display = "inline";
+      answers.style.paddingLeft = "5%";
       var highestScore = usersArray[0].score;
       var highestName = usersArray[0].initials;
     
