@@ -4,7 +4,7 @@ var startButton = document.querySelector('.start-button');
 var restartButton = document.querySelector('.restart-button');
 var startPage = document.querySelector('.start-page');
 var timeDisplay = document.querySelector('.timer');
-var question = document.querySelector('h2');
+var question = document.querySelector('h3');
 var question1 = document.querySelector('.question-1');
 var paragraph = document.querySelector('.paragraph');
 var answer1 = document.querySelector('#answer1');
@@ -27,7 +27,7 @@ answer1.style.display = "none";
 answer2.style.display = "none";
 answer3.style.display = "none";
 answer4.style.display = "none";
-answer5.style.display = "none";
+// answer5.style.display = "none";
 submit.style.display = "none";
 initialsForm.style.display = "none";
 initialsButton.style.display = "none";
@@ -39,29 +39,29 @@ var storedUsers;
 var questions = [
     
     {
-      title: "Who is leading the AFC North?",
-      choices: ["Ravens", "Browns", "Steelers", "Bengals", "none of the above"],
-      answer: "answer1"
+      title: "Which built-in method reverses the order of the elements of an array?",
+      choices: ["changeOrder(order)", "reverse()", "sort(order)", "None of the above"],
+      answer: "answer2"
     },
     {
-      title: "Who is leading the NFC North?",
-      choices: ["Bears", "Vikings", "Lions", "Packers", "none of the above"],
-      answer: "answer4"
+      title: "Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?",
+      choices: ["charAt()", "charCodeAt()", "concat()", "indexOf()"],
+      answer: "answer2"
     },
     {
-        title: "Who is leading the NFC East?",
-        choices: ["Cowboys", "Redskins", "Eagles", "Giants", "none of the above"],
-        answer: "answer3"
-      },
-      {
-        title: "Who is leading the AFC South?",
-        choices: ["Colts", "Texans", "Jaguars", "Titans", "none of the above"],
+        title: "Which of the following function of String object extracts a section of a string and returns a new string?",
+        choices: ["slice()", "split()", "replace()", "search()"],
         answer: "answer1"
       },
       {
-        title: "Who is leading the AFC East?",
-        choices: ["Jets", "Patriots", "Bills", "Dolphins", "none of the above"],
-        answer: "answer2"
+        title: "Which of the following function of String object returns the primitive value of the specified object.",
+        choices: ["toLocaleUpperCase()", "toUpperCase()", "toString()", "valueOf()"],
+        answer: "answer4"
+      },
+      {
+        title: "Which of the following function of Array object returns a new array comprised of this array joined with other array(s) and/or value(s)?",
+        choices: ["concat()", "pop()", "push()", "some()"],
+        answer: "answer1"
       },
    
   ];
@@ -102,13 +102,13 @@ function renderPage() {
     answer2.style.display = "inline";
     answer3.style.display = "inline";
     answer4.style.display = "inline";
-    answer5.style.display = "inline";
+    // answer5.style.display = "inline";
     submit.style.display = "block";
     answer1.nextSibling.textContent = " " + questions[i].choices[0];
     answer2.nextSibling.textContent = " " + questions[i].choices[1];
     answer3.nextSibling.textContent = " " + questions[i].choices[2];
     answer4.nextSibling.textContent = " " + questions[i].choices[3];
-    answer5.nextSibling.textContent = " " + questions[i].choices[4];
+    // answer5.nextSibling.textContent = " " + questions[i].choices[4];
     }}
 
 
