@@ -87,7 +87,8 @@ function timer() {
       interval = setInterval(function(){
       time--;
       timeDisplay.textContent = time;
-      if(time === 0) {
+      if(time <= 0) {
+        time = 0;
         pause();
         done();
       }
