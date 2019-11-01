@@ -27,7 +27,6 @@ answer1.style.display = "none";
 answer2.style.display = "none";
 answer3.style.display = "none";
 answer4.style.display = "none";
-// answer5.style.display = "none";
 submit.style.display = "none";
 initialsForm.style.display = "none";
 initialsButton.style.display = "none";
@@ -35,36 +34,8 @@ restartButton.style.display = "none";
 var answersCorrect = 0;
 var answersIncorrect = 0;
 var usersArray = [];
-var storedUsers;
-var questions = [
-    
-    {
-      title: "Which built-in method reverses the order of the elements of an array?",
-      choices: ["changeOrder(order)", "reverse()", "sort(order)", "None of the above"],
-      answer: "answer2"
-    },
-    {
-      title: "Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?",
-      choices: ["charAt()", "charCodeAt()", "concat()", "indexOf()"],
-      answer: "answer2"
-    },
-    {
-        title: "Which of the following function of String object extracts a section of a string and returns a new string?",
-        choices: ["slice()", "split()", "replace()", "search()"],
-        answer: "answer1"
-      },
-      {
-        title: "Which of the following function of String object returns the primitive value of the specified object.",
-        choices: ["toLocaleUpperCase()", "toUpperCase()", "toString()", "valueOf()"],
-        answer: "answer4"
-      },
-      {
-        title: "Which of the following function of Array object returns a new array comprised of this array joined with other array(s) and/or value(s)?",
-        choices: ["concat()", "pop()", "push()", "some()"],
-        answer: "answer1"
-      },
-   
-  ];
+
+
 
   startButton.addEventListener("click", function() {
     renderPage()
@@ -102,13 +73,12 @@ function renderPage() {
     answer2.style.display = "inline";
     answer3.style.display = "inline";
     answer4.style.display = "inline";
-    // answer5.style.display = "inline";
+    
     submit.style.display = "block";
     answer1.nextSibling.textContent = " " + questions[i].choices[0];
     answer2.nextSibling.textContent = " " + questions[i].choices[1];
     answer3.nextSibling.textContent = " " + questions[i].choices[2];
     answer4.nextSibling.textContent = " " + questions[i].choices[3];
-    // answer5.nextSibling.textContent = " " + questions[i].choices[4];
     }}
 
 
@@ -131,7 +101,6 @@ function timer() {
 
 function pause(){
     clearInterval(interval);
-    // time = time - 10;
     timeDisplay.textContent = time;
     
   }
@@ -192,25 +161,12 @@ function clearAnswer() {
 
  
 
-  // function highScore() {
-  //   question.textContent = "High Score";
-  //   initialsForm.value = ;
-  //   initialsButton.style.display = "none";
-  //   restartButton.style.display = "block";
-
-  //   }
-
     $(restartButton).click(function(){
       location.reload(true);
   });
 
     
-
-    
-     
-
-
-        });
+ });
       
     
 
